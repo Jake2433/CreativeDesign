@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.kyb24.singupandin.MainActivity"
+    android:background="#22aff4">
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        app:srcCompat="@drawable/smartfarm"
+        android:id="@+id/imageView2"
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/user_id"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/chick"
+        android:id="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="136dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/user_id"
+        android:hint="email@input.com"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@+id/user_pw"
+        android:layout_alignStart="@+id/user_pw" />
+
+    <TextView
+        android:text="ID"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_view"
+        android:layout_above="@+id/pw_view"
+        android:layout_alignStart="@+id/pw_view"
+        android:layout_marginBottom="18dp"
+        android:layout_alignEnd="@+id/pw_view" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/user_pw"
+        android:hint="password"
+        android:layout_marginStart="12dp"
+        android:layout_below="@+id/id_view"
+        android:layout_toEndOf="@+id/pw_view" />
+
+    <TextView
+        android:text="PW"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pw_view"
+        android:layout_marginBottom="23dp"
+        android:layout_above="@+id/btn_signin"
+        android:layout_toStartOf="@+id/imageView" />
+
+    <ImageView
+        app:srcCompat="@drawable/signin"
+        android:id="@+id/btn_signin"
+        android:layout_marginBottom="9dp"
+        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_marginEnd="15dp"
+        android:layout_above="@+id/textView2"
+        android:layout_alignEnd="@+id/imageView2" />
+
+    <ImageView
+        app:srcCompat="@drawable/signup"
+        android:id="@+id/btn_signup"
+        android:onClick="CliSignUp"
+        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_below="@+id/pw_view"
+        android:layout_toStartOf="@+id/btn_signin" />
+
+
+</RelativeLayout>

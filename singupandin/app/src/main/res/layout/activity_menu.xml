@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:layout_width="337dp"
+        android:layout_height="141dp"
+        android:src="@drawable/cctv"
+        android:layout_x="14dp"
+        android:layout_y="365dp"
+        android:background="#00000000"
+        android:id="@+id/BtnCctv" />
+
+    <ImageButton
+        android:layout_width="159dp"
+        android:src="@drawable/ventilator"
+        android:layout_x="16dp"
+        android:layout_y="191dp"
+        android:id="@+id/BtnVentilator"
+        android:background="#00000000"
+        android:layout_height="160dp" />
+
+    <ImageButton
+        android:layout_width="157dp"
+        android:layout_height="335dp"
+        android:src="@drawable/feed"
+        android:layout_x="191dp"
+        android:layout_y="16dp"
+        android:background="#00000000"
+        android:id="@+id/BtnFeed" />
+
+    <ImageButton
+        android:layout_height="160dp"
+        android:src="@drawable/temandhum"
+        android:layout_x="18dp"
+        android:layout_y="16dp"
+        android:id="@+id/BtnTempAndHum"
+        android:background="#00000000"
+        android:layout_width="159dp" />
+</AbsoluteLayout>
