@@ -6,6 +6,7 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                startActivity((new Intent(MainActivity.this, MenuPage.class)));
+                startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
                 finish();
             } else {
                 Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
