@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     void login() {
         try {
+            /*
             httpclient = new DefaultHttpClient();
             httppost = new HttpPost("http://169.254.80.80/androidtest/login.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -99,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
             }
+            */
+            startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
+            finish();
         }
         catch(Exception e)
         {
