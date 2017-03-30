@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.kyb24.smartfarm.Activitys.AddFarmFragment;
 import com.example.kyb24.smartfarm.Farms.ChickenFarm1;
 import com.example.kyb24.smartfarm.Farms.ChickenFarm2;
 import com.example.kyb24.smartfarm.Farms.ChickenFarm3;
@@ -33,6 +34,9 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 ChickenFarm3 tabFragment3 = new ChickenFarm3();
                 return tabFragment3;
+            case 3 :
+                AddFarmFragment newFarm = new AddFarmFragment();
+                return newFarm;
             default:
                 return null;
         }
