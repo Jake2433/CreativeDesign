@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kyb24.smartfarm.MainActivity"
+    tools:context="com.example.kyb24.smartfarm.Activitys.MainActivity"
     android:background="#22aff4">
 
     <TextView
-        android:text="TextView"
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp" />
 
     <ImageView
         app:srcCompat="@drawable/smartfarm"

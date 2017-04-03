@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kyb24.smartfarm">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpPage"/>
-        <activity android:name=".MenuPage"/>
-        <activity android:name=".FarmsTabActivity"/>
-
+        <activity android:name=".Activitys.SignUpPage" />
+        <activity android:name=".temp.MenuPage" />
+        <activity android:name=".Activitys.FarmsTabActivity" />
+        <activity android:name=".Activitys.AddFarmFragment"></activity>
     </application>
 
 </manifest>

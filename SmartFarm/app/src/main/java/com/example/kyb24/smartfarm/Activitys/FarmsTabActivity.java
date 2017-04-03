@@ -1,11 +1,13 @@
-package com.example.kyb24.smartfarm;
+package com.example.kyb24.smartfarm.Activitys;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import com.example.kyb24.smartfarm.R;
+import com.example.kyb24.smartfarm.util.TabPagerAdapter;
 
 /**
  * Created by kyb24 on 2017-03-28.
@@ -30,6 +32,7 @@ public class FarmsTabActivity extends AppCompatActivity{
         tabLayout.addTab(tabLayout.newTab().setText("1번 하우스"));
         tabLayout.addTab(tabLayout.newTab().setText("2번 하우스"));
         tabLayout.addTab(tabLayout.newTab().setText("3번 하우스"));
+        tabLayout.addTab(tabLayout.newTab().setText("+"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // Initializing ViewPager

@@ -1,4 +1,4 @@
-package com.example.kyb24.smartfarm;
+package com.example.kyb24.smartfarm.Activitys;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.example.kyb24.smartfarm.R;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;

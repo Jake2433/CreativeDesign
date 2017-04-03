@@ -1,7 +1,9 @@
-package com.example.kyb24.smartfarm;
+package com.example.kyb24.smartfarm.temp;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.example.kyb24.smartfarm.R;
 
 /**
  * Created by kyb24 on 2017-03-27.
