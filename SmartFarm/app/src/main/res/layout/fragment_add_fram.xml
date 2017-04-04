@@ -23,7 +23,8 @@
             android:layout_marginLeft="20dp"
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="164dp">
+            tools:layout_editor_absoluteY="164dp"
+            android:id="@+id/linearLayout">
 
             <TextView
                 android:id="@+id/textView4"
@@ -58,5 +59,6 @@
             android:background="@android:color/holo_orange_light"
             android:textSize="30dp"
             android:text="하우스 생성" />
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -31,7 +31,7 @@ public class ChickenFarm1 extends Fragment{
 
         btnCreate = (Button)view.findViewById(R.id.btnCreate);
        // btnCreate.setOnClickListener();
-
+    // fuck
         return view;
     }
 
