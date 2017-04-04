@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activitys.SignUpPage" />
-        <activity android:name=".temp.MenuPage" />
         <activity android:name=".Activitys.FarmsTabActivity" />
         <activity android:name=".Activitys.AddFarmFragment"></activity>
     </application>
