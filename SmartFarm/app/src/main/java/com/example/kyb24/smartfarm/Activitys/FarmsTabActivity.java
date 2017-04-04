@@ -1,11 +1,13 @@
 package com.example.kyb24.smartfarm.Activitys;
 
+import android.app.TabActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TabHost;
 
 import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.TabPagerAdapter;
@@ -14,16 +16,38 @@ import com.example.kyb24.smartfarm.util.TabPagerAdapter;
  * Created by kyb24 on 2017-03-28.
  */
 
-public class FarmsTabActivity extends AppCompatActivity{
+public class FarmsTabActivity extends TabActivity {
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    //private TabLayout tabLayout;
+    //private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
+
+        TabHost tabHost = getTabHost();
+
+        TabHost.TabSpec tabSpecTab1 = tabHost.newTabSpec("TAB1").setIndicator("House1");
+        tabSpecTab1.setContent(R.id.tab1);
+        tabHost.addTab(tabSpecTab1);
+
+        TabHost.TabSpec tabSpecTab2 = tabHost.newTabSpec("TAB2").setIndicator("House2");
+        tabSpecTab2.setContent(R.id.tab2);
+        tabHost.addTab(tabSpecTab2);
+
+        TabHost.TabSpec tabSpecTab3 = tabHost.newTabSpec("TAB3").setIndicator("House3");
+        tabSpecTab3.setContent(R.id.tab3);
+        tabHost.addTab(tabSpecTab3);
+
+        TabHost.TabSpec tabSpecTab4 = tabHost.newTabSpec("TAB4").setIndicator("House4");
+        tabSpecTab4.setContent(R.id.tab1);
+        tabHost.addTab(tabSpecTab4);
+
+        tabHost.setCurrentTab(0);
+
+        /*
         // Adding Toolbar to the activity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -65,5 +89,6 @@ public class FarmsTabActivity extends AppCompatActivity{
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+        */
     }
 }
