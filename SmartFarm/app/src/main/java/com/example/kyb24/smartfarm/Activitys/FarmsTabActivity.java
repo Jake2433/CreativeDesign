@@ -1,6 +1,7 @@
 package com.example.kyb24.smartfarm.Activitys;
 
 import android.app.TabActivity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -26,13 +27,17 @@ public class FarmsTabActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-
+        Resources res = getResources();
         TabHost tabHost = getTabHost();
+        TabHost.TabSpec spec;
 
-        TabHost.TabSpec tabSpecTab1 = tabHost.newTabSpec("TAB1").setIndicator("House1");
-        tabSpecTab1.setContent(R.id.tab1);
-        tabHost.addTab(tabSpecTab1);
+        spec = tabHost.newTabSpec("TAB1").setIndicator("House1").setContent(R.id.tab1);
+        tabHost.addTab(spec);
+        spec = tabHost.newTabSpec("TAB2").setIndicator("House2").setContent(R.id.tab2);
+        tabHost.addTab(spec);
 
+        tabHost.setCurrentTab(0);
+        /*
         TabHost.TabSpec tabSpecTab2 = tabHost.newTabSpec("TAB2").setIndicator("House2");
         tabSpecTab2.setContent(R.id.tab2);
         tabHost.addTab(tabSpecTab2);
@@ -44,8 +49,9 @@ public class FarmsTabActivity extends TabActivity {
         TabHost.TabSpec tabSpecTab4 = tabHost.newTabSpec("TAB4").setIndicator("House4");
         tabSpecTab4.setContent(R.id.tab1);
         tabHost.addTab(tabSpecTab4);
+        */
 
-        tabHost.setCurrentTab(0);
+
 
         /*
         // Adding Toolbar to the activity
