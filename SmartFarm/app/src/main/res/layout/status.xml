@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
     <TableLayout
         android:id="@+id/tbLayout"
         android:layout_width="fill_parent"
@@ -13,25 +15,24 @@
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/StatusValue"
                 android:id="@+id/textView9"
+                style="@style/StatusValue"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
 
             <TextView
-                style="@style/StatusName"
                 android:id="@+id/textView5"
+                style="@style/StatusName"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="현재"/>
+                android:text="현재" />
 
             <TextView
-                style="@style/StatusName"
                 android:id="@+id/textView3"
+                style="@style/StatusName"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="희망"/>
+                android:text="희망" />
 
         </TableRow>
 
@@ -40,8 +41,8 @@
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/StatusName"
                 android:id="@+id/textView6"
+                style="@style/StatusName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -55,7 +56,7 @@
                 android:layout_weight="1"
                 android:text="90" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/button2"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
@@ -69,8 +70,8 @@
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/StatusName"
                 android:id="@+id/textView2"
+                style="@style/StatusName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -84,7 +85,7 @@
                 android:layout_weight="1"
                 android:text="17" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/button4"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
@@ -98,8 +99,8 @@
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/StatusName"
                 android:id="@+id/textView1"
+                style="@style/StatusName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -113,7 +114,7 @@
                 android:layout_weight="1"
                 android:text="20" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/button7"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
@@ -127,8 +128,8 @@
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/StatusName"
                 android:id="@+id/textView10"
+                style="@style/StatusName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -142,7 +143,7 @@
                 android:layout_weight="1"
                 android:text="30" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/button3"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
@@ -150,42 +151,45 @@
                 android:text="20" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp">
 
             <ImageButton
-                android:id="@+id/button6"
+                android:id="@+id/imageButton8"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="모이" />
+                app:srcCompat="@drawable/feed" />
 
             <ImageButton
-                android:id="@+id/button5"
+                android:id="@+id/imageButton7"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="물" />
+                app:srcCompat="@drawable/water" />
         </TableRow>
+
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/button10"
+                android:id="@+id/imageButton5"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="카메라" />
+                app:srcCompat="@drawable/cctv" />
 
             <ImageButton
-                android:id="@+id/button9"
+                android:id="@+id/imageButton6"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="그래프" />
+                app:srcCompat="@drawable/graph" />
         </TableRow>
     </TableLayout>
+
 </FrameLayout>
