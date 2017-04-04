@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".Activitys.SignUpPage" />
         <activity android:name=".Activitys.FarmsTabActivity" />
-        <activity android:name=".Activitys.AddFarmFragment"></activity>
+        <activity android:name=".Activitys.AddFarmActivity" />
+        <activity android:name=".Activitys.StatusActivity"></activity>
     </application>
 
 </manifest>

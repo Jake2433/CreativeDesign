@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/statusLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:id="@+id/tbLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/StatusValue"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/StatusName"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="현재" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/StatusName"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="희망" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/StatusName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="조도" />
+
+            <TextView
+                android:id="@+id/tvCurLight"
+                style="@style/StatusValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="90" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/DesirButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="80" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/StatusName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="온도" />
+
+            <TextView
+                android:id="@+id/tvCurTemper"
+                style="@style/StatusValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="17" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/DesirButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/StatusName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="환기(%)" />
+
+            <TextView
+                android:id="@+id/tvCurAirCondi"
+                style="@style/StatusValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20" />
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/DesirButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView10"
+                style="@style/StatusName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="습도" />
+
+            <TextView
+                android:id="@+id/tvCurHumid"
+                style="@style/StatusValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="30" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/DesirButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp">
+
+            <ImageButton
+                android:id="@+id/BtnFeed"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="14.5mm"
+                app:srcCompat="@drawable/feed" />
+
+            <ImageButton
+                android:id="@+id/BtnWater"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="14.5mm"
+                app:srcCompat="@drawable/water" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/BtnCCTV"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="14.5mm"
+                app:srcCompat="@drawable/cctv" />
+
+            <ImageButton
+                android:id="@+id/BtnGraph"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="14.5mm"
+                app:srcCompat="@drawable/graph" />
+        </TableRow>
+    </TableLayout>
+
+</FrameLayout>

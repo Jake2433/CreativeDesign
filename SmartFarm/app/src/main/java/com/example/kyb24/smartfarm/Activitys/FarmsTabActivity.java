@@ -1,6 +1,7 @@
 package com.example.kyb24.smartfarm.Activitys;
 
 import android.app.TabActivity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -28,15 +29,21 @@ public class FarmsTabActivity extends TabActivity {
         setContentView(R.layout.activity_view);
 
         Resources res = getResources();
-        TabHost tabHost = getTabHost();
+        final TabHost tabHost = getTabHost();
         TabHost.TabSpec spec;
 
-        spec = tabHost.newTabSpec("TAB1").setIndicator("House1").setContent(R.id.tab1);
+        spec = tabHost.newTabSpec("TAB1");
+       // spec.setContent(new MyTabContentFactory());
+        spec.setIndicator("House1").setContent(new Intent(this,StatusActivity.class));
         tabHost.addTab(spec);
-        spec = tabHost.newTabSpec("TAB2").setIndicator("House2").setContent(R.id.tab2);
+        spec = tabHost.newTabSpec("TAB2").setIndicator("House2").setContent(new Intent(this,StatusActivity.class));
+        tabHost.addTab(spec);
+        spec = tabHost.newTabSpec("NEW").setIndicator("New").setContent(new Intent(this,AddFarmActivity.class));
         tabHost.addTab(spec);
 
         tabHost.setCurrentTab(0);
+
+//
         /*
         TabHost.TabSpec tabSpecTab2 = tabHost.newTabSpec("TAB2").setIndicator("House2");
         tabSpecTab2.setContent(R.id.tab2);
