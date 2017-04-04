@@ -4,7 +4,7 @@
     <TableLayout
         android:id="@+id/tbLayout"
         android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
@@ -13,21 +13,21 @@
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/StatusText"
+                style="@style/StatusValue"
                 android:id="@+id/textView9"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 />
 
             <TextView
-                style="@style/StatusText"
+                style="@style/StatusName"
                 android:id="@+id/textView5"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="현재"/>
 
             <TextView
-                style="@style/StatusText"
+                style="@style/StatusName"
                 android:id="@+id/textView3"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,18 +48,19 @@
                 android:text="조도" />
 
             <TextView
-                style="@style/StatusText"
                 android:id="@+id/tvCurLight"
+                style="@style/StatusValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="90" />
 
-            <TextView
-                style="@style/StatusText"
-                android:id="@+id/tvDesirLight"
+            <ImageButton
+                android:id="@+id/button2"
+                style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:text="80" />
 
         </TableRow>
 
@@ -76,18 +77,19 @@
                 android:text="온도" />
 
             <TextView
-                style="@style/StatusText"
                 android:id="@+id/tvCurTemper"
+                style="@style/StatusValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="17" />
 
-            <TextView
-                android:id="@+id/tvDesirTemper"
-                style="@style/StatusText"
+            <ImageButton
+                android:id="@+id/button4"
+                style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:text="30" />
 
         </TableRow>
 
@@ -105,16 +107,18 @@
 
             <TextView
                 android:id="@+id/tvCurAirCondi"
+                style="@style/StatusValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="20" />
 
-            <TextView
-                style="@style/StatusText"
-                android:id="@+id/tvDesirAircondi"
+            <ImageButton
+                android:id="@+id/button7"
+                style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:text="30" />
 
         </TableRow>
 
@@ -131,22 +135,57 @@
                 android:text="습도" />
 
             <TextView
-                style="@style/StatusText"
                 android:id="@+id/tvCurHumid"
+                style="@style/StatusValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="30" />
 
-            <TextView
-                style="@style/StatusText"
-                android:id="@+id/tvDesirHumid"
+            <ImageButton
+                android:id="@+id/button3"
+                style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:text="20" />
 
         </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
 
+            <ImageButton
+                android:id="@+id/button6"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모이" />
+
+            <ImageButton
+                android:id="@+id/button5"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="물" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/button10"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="카메라" />
+
+            <ImageButton
+                android:id="@+id/button9"
+                style="@style/BtnManipulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="그래프" />
+        </TableRow>
     </TableLayout>
-
-
 </FrameLayout>
