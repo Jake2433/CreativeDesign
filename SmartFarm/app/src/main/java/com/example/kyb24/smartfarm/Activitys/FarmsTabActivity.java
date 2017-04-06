@@ -36,8 +36,8 @@ public class FarmsTabActivity extends TabActivity {
        // spec.setContent(new MyTabContentFactory());
         spec.setIndicator("House1").setContent(new Intent(this,StatusActivity.class));
         tabHost.addTab(spec);
-        spec = tabHost.newTabSpec("TAB2").setIndicator("House2").setContent(new Intent(this,StatusActivity.class));
-        tabHost.addTab(spec);
+        //spec = tabHost.newTabSpec("TAB2").setIndicator("House2").setContent(new Intent(this,StatusActivity.class));
+       // tabHost.addTab(spec);
         spec = tabHost.newTabSpec("NEW").setIndicator("New").setContent(new Intent(this,AddFarmActivity.class));
         tabHost.addTab(spec);
 
