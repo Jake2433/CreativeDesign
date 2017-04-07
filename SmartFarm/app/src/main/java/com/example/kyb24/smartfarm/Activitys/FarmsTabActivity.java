@@ -1,5 +1,6 @@
 package com.example.kyb24.smartfarm.Activitys;
 
+import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,99 +10,68 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.TabPagerAdapter;
+
+import static android.R.id.tabhost;
 
 /**
  * Created by kyb24 on 2017-03-28.
  */
 
-public class FarmsTabActivity extends TabActivity {
+public class FarmsTabActivity extends TabActivity{
 
-    //private TabLayout tabLayout;
-    //private ViewPager viewPager;
+    TabHost.TabSpec spec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-        Resources res = getResources();
         final TabHost tabHost = getTabHost();
-        TabHost.TabSpec spec;
 
-        spec = tabHost.newTabSpec("TAB1");
-       // spec.setContent(new MyTabContentFactory());
-        spec.setIndicator("House1").setContent(new Intent(this,StatusActivity.class));
+
+        spec = tabHost.newTabSpec("Setting");
+        spec.setContent(new Intent(this, AddFarmActivity.class));
+        spec.setIndicator("Setting");
         tabHost.addTab(spec);
-        //spec = tabHost.newTabSpec("TAB2").setIndicator("House2").setContent(new Intent(this,StatusActivity.class));
-       // tabHost.addTab(spec);
-        spec = tabHost.newTabSpec("NEW").setIndicator("New").setContent(new Intent(this,AddFarmActivity.class));
+
+        spec = tabHost.newTabSpec("House");
+        spec.setContent(new Intent(this, StatusActivity.class));
+        spec.setIndicator("House");
+        tabHost.addTab(spec);
+
+        spec = tabHost.newTabSpec("House");
+        spec.setContent(new Intent(this, StatusActivity.class));
+        spec.setIndicator("House");
         tabHost.addTab(spec);
 
         tabHost.setCurrentTab(0);
 
-//
         /*
-        TabHost.TabSpec tabSpecTab2 = tabHost.newTabSpec("TAB2").setIndicator("House2");
-        tabSpecTab2.setContent(R.id.tab2);
-        tabHost.addTab(tabSpecTab2);
-
-        TabHost.TabSpec tabSpecTab3 = tabHost.newTabSpec("TAB3").setIndicator("House3");
-        tabSpecTab3.setContent(R.id.tab3);
-        tabHost.addTab(tabSpecTab3);
-
-        TabHost.TabSpec tabSpecTab4 = tabHost.newTabSpec("TAB4").setIndicator("House4");
-        tabSpecTab4.setContent(R.id.tab1);
-        tabHost.addTab(tabSpecTab4);
-        */
-
-
-
-        /*
-        // Adding Toolbar to the activity
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar bar = getSupportActionBar();
-        if(bar != null) {
-            bar.hide();
-        }
-
-        // Initializing the TabLayout
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("1번 하우스"));
-        tabLayout.addTab(tabLayout.newTab().setText("2번 하우스"));
-        tabLayout.addTab(tabLayout.newTab().setText("3번 하우스"));
-        tabLayout.addTab(tabLayout.newTab().setText("+"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        // Initializing ViewPager
-        viewPager = (ViewPager) findViewById(R.id.pager);
-
-        // Creating TabPagerAdapter adapter
-        TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        // Set TabSelectedListener
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-
+        btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+            public void onClick(View view) {
+                TabHost.TabSpec spec = tabHost.newTabSpec("tab1").setIndicator("House").setContent(new Intent(this, StatusActivity.class));
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
+                spec.setContent(new TabHost.TabContentFactory() {
+                    @Override
+                    public View createTabContent(String tag) {
+                        //return new View(R.layout.activity_status);
+                        return new DatePicker(FarmsTabActivity.this);
+                    }
+                });
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+                tabHost.addTab(spec);
+                tabHost.setCurrentTab(tabHost.getChildCount());
             }
         });
-        */
+*/
     }
 }
