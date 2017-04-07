@@ -95,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
             }
             */
-            startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
+            Intent intent = new Intent(MainActivity.this, FarmsTabActivity.class);
+            startActivity(intent);
             finish();
         }
         catch(Exception e)

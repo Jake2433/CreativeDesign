@@ -20,6 +20,7 @@ import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.TabPagerAdapter;
 
 import static android.R.id.tabhost;
+import static com.example.kyb24.smartfarm.Activitys.AddFarmActivity.btnCreate;
 
 /**
  * Created by kyb24 on 2017-03-28.
@@ -28,50 +29,36 @@ import static android.R.id.tabhost;
 public class FarmsTabActivity extends TabActivity{
 
     TabHost.TabSpec spec;
+    TabHost tabHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-        final TabHost tabHost = getTabHost();
-
+        tabHost = getTabHost();
 
         spec = tabHost.newTabSpec("Setting");
         spec.setContent(new Intent(this, AddFarmActivity.class));
         spec.setIndicator("Setting");
         tabHost.addTab(spec);
 
-        spec = tabHost.newTabSpec("House");
-        spec.setContent(new Intent(this, StatusActivity.class));
-        spec.setIndicator("House");
-        tabHost.addTab(spec);
 
-        spec = tabHost.newTabSpec("House");
-        spec.setContent(new Intent(this, StatusActivity.class));
-        spec.setIndicator("House");
-        tabHost.addTab(spec);
-
-        tabHost.setCurrentTab(0);
-
-        /*
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TabHost.TabSpec spec = tabHost.newTabSpec("tab1").setIndicator("House").setContent(new Intent(this, StatusActivity.class));
-
-                spec.setContent(new TabHost.TabContentFactory() {
-                    @Override
-                    public View createTabContent(String tag) {
-                        //return new View(R.layout.activity_status);
-                        return new DatePicker(FarmsTabActivity.this);
-                    }
-                });
-
-                tabHost.addTab(spec);
-                tabHost.setCurrentTab(tabHost.getChildCount());
+                Toast.makeText(getApplicationContext(), "출력할 문자열", Toast.LENGTH_LONG).show();
+                NewTab();
             }
         });
-*/
+
+        tabHost.setCurrentTab(0);
+    }
+
+    void NewTab(){
+        spec = tabHost.newTabSpec("House");
+        spec.setContent(new Intent(this, StatusActivity.class));
+        spec.setIndicator("House");
+        tabHost.addTab(spec);
     }
 }
