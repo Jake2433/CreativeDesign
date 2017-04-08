@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/statusLayout"
     android:layout_width="match_parent"
@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_x="1dp"
+        android:layout_y="1dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -59,10 +61,11 @@
                 android:text="90" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/BtnControlIllumination"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="BCIClick"
                 android:text="80" />
 
         </TableRow>
@@ -88,10 +91,11 @@
                 android:text="17" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/BtnControlTemperature"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="BCTClick"
                 android:text="30" />
 
         </TableRow>
@@ -117,10 +121,11 @@
                 android:text="20" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/BtnControlVentilator"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="BCVClick"
                 android:text="30" />
 
         </TableRow>
@@ -138,7 +143,7 @@
                 android:text="습도" />
 
             <TextView
-                android:id="@+id/tvCurHumid"
+                android:id="@+id/tvCurHumi"
                 style="@style/StatusValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,52 +151,61 @@
                 android:text="30" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/BtnControlHumidity"
                 style="@style/DesirButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="BCHClick"
                 android:text="20" />
 
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="160dp">
 
             <ImageButton
                 android:id="@+id/BtnFeed"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
-                app:srcCompat="@drawable/feed" />
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/feed"
+                android:layout_marginRight="5dp"/>
 
             <ImageButton
                 android:id="@+id/BtnWater"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/water" />
+
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/BtnCCTV"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
-                app:srcCompat="@drawable/cctv" />
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/cctv"
+                android:layout_marginRight="5dp"
+                android:onClick="ClickCCTV"/>
 
             <ImageButton
                 android:id="@+id/BtnGraph"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/graph" />
+
         </TableRow>
     </TableLayout>
-
-</FrameLayout>
+</AbsoluteLayout>
