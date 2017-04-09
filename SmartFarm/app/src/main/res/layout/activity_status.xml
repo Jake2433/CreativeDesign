@@ -163,16 +163,17 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="160dp">
+            android:layout_marginTop="130dp">
 
             <ImageButton
                 android:id="@+id/BtnFeed"
                 style="@style/BtnManipulation"
                 android:layout_width="170dp"
                 android:layout_height="90dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/feed"
-                android:layout_marginRight="5dp"/>
+                android:onClick="ClickFeed"
+                app:srcCompat="@drawable/feed" />
 
             <ImageButton
                 android:id="@+id/BtnWater"
@@ -180,6 +181,7 @@
                 android:layout_width="170dp"
                 android:layout_height="90dp"
                 android:layout_weight="1"
+                android:onClick="ClickWater"
                 app:srcCompat="@drawable/water" />
 
         </TableRow>
@@ -193,10 +195,10 @@
                 style="@style/BtnManipulation"
                 android:layout_width="170dp"
                 android:layout_height="90dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/cctv"
                 android:layout_marginRight="5dp"
-                android:onClick="ClickCCTV"/>
+                android:layout_weight="1"
+                android:onClick="ClickCCTV"
+                app:srcCompat="@drawable/cctv" />
 
             <ImageButton
                 android:id="@+id/BtnGraph"
