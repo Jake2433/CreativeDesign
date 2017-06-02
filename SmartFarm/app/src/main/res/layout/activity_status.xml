@@ -210,4 +210,13 @@
 
         </TableRow>
     </TableLayout>
+
+    <Button
+        android:id="@+id/Button_Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="136dp"
+        android:layout_y="255dp"
+        android:onClick="ClickLogOut"
+        android:text="LOG OUT" />
 </AbsoluteLayout>

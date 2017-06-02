@@ -43,7 +43,6 @@ public class FarmsTabActivity extends TabActivity{
         spec.setIndicator("Setting");
         tabHost.addTab(spec);
 
-
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -3,6 +3,7 @@ package com.example.kyb24.smartfarm.Activitys;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -127,5 +128,18 @@ public class StatusActivity extends AppCompatActivity implements OnDismissListen
     {
         Intent intent = new Intent(this,CCTVActivity.class);
         startActivity(intent);
+    }
+
+    public void ClickLogOut(View view)
+    {
+        Intent intent = new Intent(StatusActivity.this, MainActivity.class);
+        startActivity(intent);
+        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = auto.edit();
+        //editor.clear()는 auto에 들어있는 모든 정보를 기기에서 지웁니다.
+        editor.clear();
+        editor.commit();
+        Toast.makeText(StatusActivity.this, "로그아웃.", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }

@@ -1,7 +1,9 @@
 package com.example.kyb24.smartfarm.Activitys;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.kyb24.smartfarm.R;
@@ -16,9 +19,18 @@ import com.example.kyb24.smartfarm.R;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.kyb24.smartfarm.R.id.user_id;
+import static com.example.kyb24.smartfarm.R.id.user_pw;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog dialog = null;
     TextView tv;
 
+    String loginId, loginPwd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,29 +56,39 @@ public class MainActivity extends AppCompatActivity {
 
         BtnSignUp = (ImageView)findViewById(R.id.btn_signup);
         BtnSignIn = (ImageView) findViewById(R.id.btn_signin);
-        inputID = (EditText)findViewById(R.id.user_id);
-        inputPW = (EditText)findViewById(R.id.user_pw);
+        inputID = (EditText)findViewById(user_id);
+        inputPW = (EditText)findViewById(user_pw);
         tv = (TextView)findViewById(R.id.textView2);
+        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+        loginId = auto.getString("user_id",null);
+        loginPwd = auto.getString("user_pw",null);
 
-        BtnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog = ProgressDialog.show(MainActivity.this, "",
-                        "Validating user...", true);
-                new Thread(new Runnable() {
-                    public void run() {
-                        login();
-                    }
-                }).start();
-            }
-        });
+       if(loginId == null && loginPwd == null){
+            BtnSignIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog = ProgressDialog.show(MainActivity.this, "",
+                            "Validating user...", true);
+
+                    new Thread(new Runnable() {
+
+                        public void run() {
+                            login();
+                        }
+                    }).start();
+                }
+            });
+       }
+       else if(loginId !=null && loginPwd != null) {
+           startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
+           finish();
+        }
     }
-
     void login() {
         try {
-            /*
+
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost("http://169.254.80.80/androidtest/login.php");
+            httppost = new HttpPost("http://172.16.206.99/androidtest/login.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("username", inputID.getText().toString()));
             nameValuePairs.add(new BasicNameValuePair("password", inputPW.getText().toString()));
@@ -81,23 +105,28 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            if (response.equalsIgnoreCase("User Found")) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                if (response.equalsIgnoreCase("User Found")) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+                            //auto의 loginId와 loginPwd에 값을 저장해 줍니다.
+                            SharedPreferences.Editor autoLogin = auto.edit();
+                            autoLogin.putString("user_id", inputID.getText().toString());
+                            autoLogin.putString("user_pw", inputPW.getText().toString());
+                            //꼭 commit()을 해줘야 값이 저장
+                            autoLogin.commit();
 
-                startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
-                finish();
-            } else {
-                Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
-            }
-            */
-            Intent intent = new Intent(MainActivity.this, FarmsTabActivity.class);
-            startActivity(intent);
-            finish();
+                            Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
+                    finish();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
+                }
         }
         catch(Exception e)
         {
