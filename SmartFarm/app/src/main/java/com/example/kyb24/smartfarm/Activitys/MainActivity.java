@@ -1,7 +1,9 @@
 package com.example.kyb24.smartfarm.Activitys;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,15 +11,23 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.kyb24.smartfarm.R;
+import com.example.kyb24.smartfarm.util.Util;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog dialog = null;
     TextView tv;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         BtnSignIn = (ImageView) findViewById(R.id.btn_signin);
         inputID = (EditText)findViewById(R.id.user_id);
         inputPW = (EditText)findViewById(R.id.user_pw);
-        tv = (TextView)findViewById(R.id.textView2);
+        tv = (TextView)findViewById(R.id.result_test);
 
         BtnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
     void login() {
         try {
-            /*
+
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost("http://169.254.80.80/androidtest/login.php");
+            httppost = new HttpPost(Util.serverAddress + "/login.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("username", inputID.getText().toString()));
             nameValuePairs.add(new BasicNameValuePair("password", inputPW.getText().toString()));
@@ -73,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             ResponseHandler<String> responseHandler = new BasicResponseHandler();
             final String response = httpclient.execute(httppost, responseHandler);
             System.out.println("Response : " + response);
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -94,10 +106,13 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
             }
-            */
+
             Intent intent = new Intent(MainActivity.this, FarmsTabActivity.class);
             startActivity(intent);
             finish();
+
+
+            //Toast.makeText(getApplicationContext(), "Test" , Toast.LENGTH_LONG).show();
         }
         catch(Exception e)
         {

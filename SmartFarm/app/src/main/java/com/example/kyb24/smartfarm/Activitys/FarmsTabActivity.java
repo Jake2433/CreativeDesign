@@ -38,6 +38,13 @@ public class FarmsTabActivity extends TabActivity{
 
         tabHost = getTabHost();
 
+        spec = tabHost.newTabSpec("House");
+        spec.setContent(new Intent(this, StatusActivity.class));
+        spec.setIndicator("House");
+        tabHost.addTab(spec);
+
+
+        /*
         spec = tabHost.newTabSpec("Setting");
         spec.setContent(new Intent(this, AddFarmActivity.class));
         spec.setIndicator("Setting");
@@ -51,14 +58,16 @@ public class FarmsTabActivity extends TabActivity{
                 NewTab();
             }
         });
-
+        */
         tabHost.setCurrentTab(0);
-    }
 
+    }
+/*
     void NewTab(){
         spec = tabHost.newTabSpec("House");
         spec.setContent(new Intent(this, StatusActivity.class));
         spec.setIndicator("House");
         tabHost.addTab(spec);
     }
+    */
 }

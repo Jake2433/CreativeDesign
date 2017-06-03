@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.kyb24.smartfarm.R;
+import com.example.kyb24.smartfarm.util.Util;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -184,7 +185,7 @@ public class SignUpPage extends Activity {
 
         try {
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost("http://169.254.80.80/androidtest/duplication.php");
+            httppost = new HttpPost(Util.serverAddress + "/duplication.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("Id", editTextId.getText().toString()));
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -208,6 +209,7 @@ public class SignUpPage extends Activity {
                 alert.setMessage("사용 가능한 ID입니다");
                 alert.show();
             }
+
         }
         catch(Exception e) {}
     }
@@ -263,7 +265,7 @@ public class SignUpPage extends Activity {
                     String Sex = (String) params[4];
                     String Phone = (String) params[5];
 
-                    String link = "http://169.254.80.80/androidtest/post.php";
+                    String link = Util.serverAddress + "/join.php";
                     String data = URLEncoder.encode("Id", "UTF-8") + "=" + URLEncoder.encode(Id, "UTF-8");
                     data += "&" + URLEncoder.encode("Pw", "UTF-8") + "=" + URLEncoder.encode(Pw, "UTF-8");
                     data += "&" + URLEncoder.encode("Name", "UTF-8") + "=" + URLEncoder.encode(Name, "UTF-8");

@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:spinnerMode="dialog"/>
+
     <TableLayout
         android:id="@+id/tbLayout"
         android:layout_width="match_parent"
@@ -20,20 +26,18 @@
                 android:id="@+id/textView9"
                 style="@style/StatusValue"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                />
 
             <TextView
                 android:id="@+id/textView5"
                 style="@style/StatusName"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="현재" />
 
             <TextView
                 android:id="@+id/textView3"
                 style="@style/StatusName"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="희망" />
 
         </TableRow>
@@ -45,23 +49,18 @@
             <TextView
                 android:id="@+id/textView6"
                 style="@style/StatusName"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="조도" />
 
             <TextView
                 android:id="@+id/tvCurLight"
                 style="@style/StatusValue"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="90" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnDesirLight"
                 style="@style/DesirButton"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="80" />
 
@@ -72,25 +71,20 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/result_test"
                 style="@style/StatusName"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="온도" />
 
             <TextView
                 android:id="@+id/tvCurTemper"
                 style="@style/StatusValue"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="17" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnDesirTemper"
                 style="@style/DesirButton"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="30" />
 
@@ -103,23 +97,18 @@
             <TextView
                 android:id="@+id/textView1"
                 style="@style/StatusName"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="환기(%)" />
 
             <TextView
                 android:id="@+id/tvCurAirCondi"
                 style="@style/StatusValue"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="20" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btnDesirAirCondi"
                 style="@style/DesirButton"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="30" />
 
@@ -132,23 +121,18 @@
             <TextView
                 android:id="@+id/textView10"
                 style="@style/StatusName"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="습도" />
 
             <TextView
                 android:id="@+id/tvCurHumid"
                 style="@style/StatusValue"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="30" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnDesirHumid"
                 style="@style/DesirButton"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20" />
 
@@ -160,14 +144,14 @@
             android:layout_marginTop="160dp">
 
             <ImageButton
-                android:id="@+id/BtnFeed"
+                android:id="@+id/btnFeed"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="14.5mm"
                 app:srcCompat="@drawable/feed" />
 
             <ImageButton
-                android:id="@+id/BtnWater"
+                android:id="@+id/btnWater"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="14.5mm"
@@ -179,14 +163,14 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/BtnCCTV"
+                android:id="@+id/btnCCTV"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="14.5mm"
                 app:srcCompat="@drawable/cctv" />
 
             <ImageButton
-                android:id="@+id/BtnGraph"
+                android:id="@+id/btnGraph"
                 style="@style/BtnManipulation"
                 android:layout_width="wrap_content"
                 android:layout_height="14.5mm"
