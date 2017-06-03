@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/statusLayout"
     android:layout_width="match_parent"
@@ -62,6 +62,7 @@
                 android:id="@+id/btnDesirLight"
                 style="@style/DesirButton"
                 android:layout_height="wrap_content"
+                android:onClick="BCIClick"
                 android:text="80" />
 
         </TableRow>
@@ -86,6 +87,7 @@
                 android:id="@+id/btnDesirTemper"
                 style="@style/DesirButton"
                 android:layout_height="wrap_content"
+                android:onClick="BCTClick"
                 android:text="30" />
 
         </TableRow>
@@ -110,6 +112,7 @@
                 android:id="@+id/btnDesirAirCondi"
                 style="@style/DesirButton"
                 android:layout_height="wrap_content"
+                android:onClick="BCVClick"
                 android:text="30" />
 
         </TableRow>
@@ -134,48 +137,66 @@
                 android:id="@+id/btnDesirHumid"
                 style="@style/DesirButton"
                 android:layout_height="wrap_content"
+                android:onClick="BCHClick"
                 android:text="20" />
 
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="160dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="130dp">
 
             <ImageButton
                 android:id="@+id/btnFeed"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:onClick="ClickFeed"
                 app:srcCompat="@drawable/feed" />
 
             <ImageButton
                 android:id="@+id/btnWater"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:onClick="ClickWater"
                 app:srcCompat="@drawable/water" />
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/btnCCTV"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:onClick="ClickCCTV"
                 app:srcCompat="@drawable/cctv" />
 
             <ImageButton
                 android:id="@+id/btnGraph"
                 style="@style/BtnManipulation"
-                android:layout_width="wrap_content"
-                android:layout_height="14.5mm"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/graph" />
         </TableRow>
     </TableLayout>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/Button_Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="136dp"
+        android:layout_y="255dp"
+        android:onClick="ClickLogOut"
+        android:text="LOG OUT" />
+</AbsoluteLayout>
