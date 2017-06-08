@@ -1,0 +1,30 @@
+#Internal package file, do not edit.
+#Tue Jun 06 22:26:46 KST 2017
+2.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+5.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+5.set=DEX
+3.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+6.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\menu-v11\\activity_capture_camera_image.xml
+2.set=ANDROID_RESOURCE
+4.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+7.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\ic_launcher.png
+7.set=ANDROID_RESOURCE
+count=9
+0.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+5.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+8.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\cameraview.xml
+4.set=ANDROID_RESOURCE
+6.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+1.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\ic_action_search.png
+1.set=ANDROID_RESOURCE
+7.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+2.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activitycapturecameraimage.xml
+6.set=ANDROID_RESOURCE
+0.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+8.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+3.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\menu\\activity_capture_camera_image.xml
+3.set=ANDROID_RESOURCE
+1.base=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_
+4.file=D\:\\khu\\khu-android\\SmartFarm-App\\CaptureCameraImage\\app\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+8.set=ANDROID_RESOURCE
+0.set=ANDROID_RESOURCE

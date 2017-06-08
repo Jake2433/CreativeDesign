@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         BtnSignIn = (ImageView) findViewById(R.id.btn_signin);
         inputID = (EditText)findViewById(R.id.user_id);
         inputPW = (EditText)findViewById(R.id.user_pw);
-        //tv = (TextView)findViewById(R.id.result_test);
+        tv = (TextView)findViewById(R.id.result_test);
         inputID = (EditText)findViewById(user_id);
         inputPW = (EditText)findViewById(user_pw);
         //tv = (TextView)findViewById(R.id.textView2);

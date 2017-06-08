@@ -29,7 +29,6 @@ import android.widget.Toast;
 
 import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.Util;
-public class StatusActivity extends AppCompatActivity implements OnDismissListener, OnClickListener{
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -40,7 +39,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -52,6 +50,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     TextView tvCurLight, tvCurTemper, tvCurAirCondi, tvCurHumid;
     Button btnDesirLight, btnDesirTemper, btnDesirAirCondi, btnDesirHumid;
     ImageButton btnFeed, btnWater, btnCCTV, btnGraph;
+    Button btnLogout;
 
     HttpPost httppost;
     HttpResponse response;
@@ -61,7 +60,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     String selectedVal;
     Spinner spinner;
 
-    int btn = 0;
+    int btn = -1;
     private TextView _valueField ;
 
     @Override
@@ -115,16 +114,19 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                 spinner.performClick();
                 break;
             case R.id.btnFeed:
-
+                ClickFeed();
                 break;
             case R.id.btnWater:
-
+                ClickWater();
                 break;
             case R.id.btnCCTV:
-
+                ClickCCTV();
                 break;
             case R.id.btnGraph:
 
+                break;
+            case R.id.btnLogout:
+                ClickLogOut();
                 break;
         }
     }
@@ -161,6 +163,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         btnWater = (ImageButton) findViewById(R.id.btnWater);
         btnCCTV = (ImageButton) findViewById(R.id.btnCCTV);
         btnGraph = (ImageButton) findViewById(R.id.btnGraph);
+        btnLogout = (Button)findViewById(R.id.btnLogout);
 
         btnDesirLight.setOnClickListener(this);
         btnDesirTemper.setOnClickListener(this);
@@ -171,10 +174,16 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         btnWater.setOnClickListener(this);
         btnCCTV.setOnClickListener(this);
         btnGraph.setOnClickListener(this);
+        btnLogout.setOnClickListener(this);
 
         spinner = (Spinner) findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        for(int i=1; i<=80; i++){
+            list.add(String.valueOf(i));
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.desire_values, android.R.layout.simple_spinner_item);
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.desire_values, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
@@ -212,7 +221,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     void SetSensorValue(){
         try {
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost(Util.serverAddress + "/sensor.php");
+            httppost = new HttpPost(Util.serverAddress + "/returnSensorValue.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             response = httpclient.execute(httppost);
@@ -228,50 +237,8 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         }
         catch(Exception e) {}
     }
-    public void BCIClick(View view)
-    {
-        _valueField = (Button)findViewById(R.id.BtnControlIllumination );
-        Button btn = (Button)findViewById(R.id.BtnControlIllumination);
-        btn.setOnClickListener(this) ;
-    }
 
-    public void BCTClick(View view)
-    {
-        _valueField = (Button)findViewById(R.id.BtnControlTemperature);
-        Button btn = (Button)findViewById(R.id.BtnControlTemperature);
-        btn.setOnClickListener(this) ;
-    }
-
-    public void BCVClick(View view)
-    {
-        _valueField = (Button)findViewById(R.id.BtnControlVentilator);
-        Button btn = (Button)findViewById(R.id.BtnControlVentilator);
-        btn.setOnClickListener(this);
-    }
-
-    public void BCHClick(View view)
-    {
-        _valueField = (Button)findViewById( R.id.BtnControlHumidity );
-        Button btn = (Button)findViewById(R.id.BtnControlHumidity);
-        btn.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        CustomDialog dialog = new CustomDialog(this) ;
-        dialog.setOnDismissListener(this);
-        dialog.show();
-    }
-
-    @Override
-    public void onDismiss(DialogInterface $dialog) {
-        CustomDialog dialog = (CustomDialog) $dialog;
-        String value = dialog.getValue();
-        _valueField.setText(value);
-    }
-
-
-    public void ClickFeed(View view)
+    public void ClickFeed()
     {
         final CharSequence[] FeedingNumber = {"1번 모이통", "2번 모이통", "3번 모이통"};
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
@@ -299,7 +266,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         alt_bld.show();
     }
 
-    public void ClickWater(View view)
+    public void ClickWater()
     {
         final CharSequence[] WaterNumber = {"1번 식수통", "2번 식수통", "3번 식수통"};
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
@@ -326,13 +293,13 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         alt_bld.show();
     }
 
-    public void ClickCCTV(View view)
+    public void ClickCCTV()
     {
         Intent intent = new Intent(this,CCTVActivity.class);
         startActivity(intent);
     }
 
-    public void ClickLogOut(View view)
+    public void ClickLogOut()
     {
         Intent intent = new Intent(StatusActivity.this, MainActivity.class);
         startActivity(intent);

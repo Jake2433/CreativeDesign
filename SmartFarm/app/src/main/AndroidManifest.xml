@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -26,8 +27,9 @@
         <activity android:name=".Activitys.SignUpPage" />
         <activity android:name=".Activitys.FarmsTabActivity" />
         <activity android:name=".Activitys.AddFarmActivity" />
-        <activity android:name=".Activitys.StatusActivity"></activity>
-        <activity android:name=".Activitys.CCTVActivity"/>
+        <activity android:name=".Activitys.StatusActivity" />
+        <activity android:name=".Activitys.CCTVActivity" />
+        <activity android:name=".Activitys.GraphActivity"></activity>
     </application>
 
 </manifest>
