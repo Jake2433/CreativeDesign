@@ -123,7 +123,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                 ClickCCTV();
                 break;
             case R.id.btnGraph:
-
+                ClickGraph();
                 break;
             case R.id.btnLogout:
                 ClickLogOut();
@@ -291,6 +291,11 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                     }
                 });
         alt_bld.show();
+    }
+
+    public void ClickGraph(){
+        Intent intent = new Intent(StatusActivity.this, GraphActivity.class);
+        startActivity(intent);
     }
 
     public void ClickCCTV()
