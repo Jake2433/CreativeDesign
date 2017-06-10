@@ -47,6 +47,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.Util;
@@ -72,6 +74,8 @@ public class CCTVActivity extends AppCompatActivity {
     HttpClient httpclient;
     List<NameValuePair> nameValuePairs;
 
+    Timer t;
+
     byte[] decodedString;
     Bitmap decodedByte;
     ImageView imgViewCCTV;
@@ -83,6 +87,12 @@ public class CCTVActivity extends AppCompatActivity {
 
         imgViewCCTV= (ImageView)findViewById(R.id.imgViewCCTV);
 
+
+        SetCCTVTimer();
+
+    }
+
+    void SetCapturedImage(){
         try {
             httpclient = new DefaultHttpClient();
             httppost = new HttpPost(Util.serverAddress + "/sendCapturedPhoto.php");
@@ -104,9 +114,26 @@ public class CCTVActivity extends AppCompatActivity {
         catch(Exception e) {
             Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
         }
-        /*
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        t.cancel();
+        t.purge();
+        finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        t.cancel();
+        t.purge();
+    }
+
+    void SetCCTVTimer() {
         //Declare the timer
-        Timer t = new Timer();
+        t = new Timer();
         //Set the schedule function and rate
         t.scheduleAtFixedRate(new TimerTask() {
                                   @Override
@@ -116,8 +143,7 @@ public class CCTVActivity extends AppCompatActivity {
                                       runOnUiThread(new Runnable() {
                                           @Override
                                           public void run() {
-                                            SetSensorValue();
-
+                                              SetCapturedImage();
                                           }
                                       });
                                   }
@@ -126,8 +152,7 @@ public class CCTVActivity extends AppCompatActivity {
 //Set how long before to start calling the TimerTask (in milliseconds)
                 0,
 //Set the amount of time between each execution (in milliseconds)
-                1000);
-        */
+                500);
     }
 }
 

@@ -1,10 +1,7 @@
 package com.example.kyb24.smartfarm.Activitys;
 
 import android.content.DialogInterface;
-import android.os.AsyncTask;
-import android.os.Handler;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
@@ -18,15 +15,9 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.View;
-
-import android.content.DialogInterface.OnDismissListener;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
+import com.example.kyb24.smartfarm.Activitys.Graphs.GraphTabActivity;
 import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.Util;
 
@@ -60,6 +51,8 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     String selectedVal;
     Spinner spinner;
 
+    Timer t;
+
     int btn = -1;
     private TextView _valueField ;
 
@@ -70,28 +63,8 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
 
         InitVariables();
 
-        //Declare the timer
-        Timer t = new Timer();
-        //Set the schedule function and rate
-        t.scheduleAtFixedRate(new TimerTask() {
-                                  @Override
-                                  public void run() {
-                                      //Called each time when 1000 milliseconds (1 second) (the period parameter)
-                                      //We must use this function in order to change the text view text
-                                      runOnUiThread(new Runnable() {
-                                          @Override
-                                          public void run() {
-                                            SetSensorValue();
 
-                                          }
-                                      });
-                                  }
-
-                              },
-//Set how long before to start calling the TimerTask (in milliseconds)
-                0,
-//Set the amount of time between each execution (in milliseconds)
-                1000);
+        SetTimer();
     }
 
     public void onClick(View v) {
@@ -127,6 +100,8 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btnLogout:
                 ClickLogOut();
+                break;
+            case R.id.btnOK:
                 break;
         }
     }
@@ -221,7 +196,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     void SetSensorValue(){
         try {
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost(Util.serverAddress + "/returnSensorValue.php");
+            httppost = new HttpPost(Util.serverAddress + "/returnRecentSensorValue.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             response = httpclient.execute(httppost);
@@ -249,12 +224,12 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         // 각 리스트를 선택했을때
+                        Toast.makeText(getApplicationContext(), FeedingNumber[whichButton], Toast.LENGTH_LONG).show();
                     }
                 }).setPositiveButton("Ok",
                 new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int whichButton) {
                         // OK 버튼 클릭시 , 여기서 선택한 값을 메인 Activity 로 넘기면 된다.
-
                     }
                 }).setNegativeButton("Cancel",
                 new DialogInterface.OnClickListener() {
@@ -294,7 +269,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void ClickGraph(){
-        Intent intent = new Intent(StatusActivity.this, GraphActivity.class);
+        Intent intent = new Intent(StatusActivity.this, GraphTabActivity.class);
         startActivity(intent);
     }
 
@@ -315,5 +290,43 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         editor.commit();
         Toast.makeText(StatusActivity.this, "로그아웃.", Toast.LENGTH_SHORT).show();
         finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        t.cancel();
+        t.purge();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SetTimer();
+    }
+
+    void SetTimer(){
+        //Declare the timer
+        t = new Timer();
+        //Set the schedule function and rate
+        t.scheduleAtFixedRate(new TimerTask() {
+                                  @Override
+                                  public void run() {
+                                      //Called each time when 1000 milliseconds (1 second) (the period parameter)
+                                      //We must use this function in order to change the text view text
+                                      runOnUiThread(new Runnable() {
+                                          @Override
+                                          public void run() {
+                                              SetSensorValue();
+
+                                          }
+                                      });
+                                  }
+
+                              },
+//Set how long before to start calling the TimerTask (in milliseconds)
+                0,
+//Set the amount of time between each execution (in milliseconds)
+                1000);
     }
 }

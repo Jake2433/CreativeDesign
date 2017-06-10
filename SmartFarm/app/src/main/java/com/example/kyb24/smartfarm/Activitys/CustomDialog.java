@@ -26,7 +26,7 @@ public final class CustomDialog extends Dialog {
         setContentView( R.layout.value_dialog ) ;
 
         _valueField = (EditText) findViewById( R.id.logTxt ) ;
-        Button btn = (Button) findViewById( R.id.dismissBtn ) ;
+        Button btn = (Button) findViewById( R.id.btnOK ) ;
 
         btn.setOnClickListener( new View.OnClickListener() {
 

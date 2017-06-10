@@ -11,6 +11,15 @@
         <dex dex="D:\khu\khu-android\SmartFarm-App\CaptureCameraImage\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_990b7fa984752a84ebdb25c8db7c2d5699efa2f8.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="C:\Users\mbj94\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="D:\khu\khu-android\SmartFarm-App\CaptureCameraImage\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_990b7fa984752a84ebdb25c8db7c2d5699efa2f8\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="C:\Users\mbj94\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
@@ -18,6 +27,24 @@
         revision="25.0.2"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
         <dex dex="D:\khu\khu-android\SmartFarm-App\CaptureCameraImage\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_990b7fa984752a84ebdb25c8db7c2d5699efa2f8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\khu\khu-android\SmartFarm-App\CaptureCameraImage\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="93b6fd8bff390fbeebd13f5ad95b3400975a1e7d">
+        <dex dex="D:\khu\khu-android\SmartFarm-App\CaptureCameraImage\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_5bde8b76e99fef4fe6eabdaae1747c58b9a21d27\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\khu\khu-android\SmartFarm-App\CaptureCameraImage\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="D:\khu\khu-android\SmartFarm-App\CaptureCameraImage\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a62361d1e23021d2689f41c814b24929ddaa88ae\classes.dex" />
     </item>
 
 </items>

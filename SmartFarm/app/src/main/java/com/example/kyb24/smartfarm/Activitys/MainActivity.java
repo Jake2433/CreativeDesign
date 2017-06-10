@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             });
        }
        else if(loginId !=null && loginPwd != null) {
-           startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
+           startActivity((new Intent(MainActivity.this, StatusActivity.class)));
            finish();
         }
     }
@@ -128,13 +128,13 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
-                startActivity((new Intent(MainActivity.this, FarmsTabActivity.class)));
+                startActivity((new Intent(MainActivity.this, StatusActivity.class)));
                 finish();
             } else {
                 Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
             }
 
-            Intent intent = new Intent(MainActivity.this, FarmsTabActivity.class);
+            Intent intent = new Intent(MainActivity.this, StatusActivity.class);
             startActivity(intent);
             finish();
         }

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.kyb24.smartfarm.Activitys.AddFarmActivity;
+import com.example.kyb24.smartfarm.Activitys.Graphs.TemperatureGraph;
 
 public class TabPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -23,7 +24,7 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
         // change
         // Returning the current tabs
         switch (position) {
-            /*
+/*
             case 0:
                 ChickenFarm1 tabFragment1 = new ChickenFarm1();
                 return tabFragment1;
@@ -33,14 +34,14 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 ChickenFarm3 tabFragment3 = new ChickenFarm3();
                 return tabFragment3;
-                */
-            /*
+
             case 3 :
-                AddFarmActivity newFarm = new AddFarmActivity();
-                return newFarm;
+                TemperatureGraph temperatureGraph = new TemperatureGraph();
+                return temperatureGraph;
                 */
             default:
                 return null;
+
         }
     }
     @Override

@@ -1,7 +1,7 @@
-package com.example.kyb24.smartfarm.util;
+package com.androidmyway.demo.capturecameraimage;
 
 /**
- * Created by mbj94 on 2017-06-02.
+ * Created by mbj94 on 2017-06-10.
  */
 
 public class Util {

@@ -21,7 +21,9 @@ import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.ByteArrayInputStream;
@@ -80,7 +82,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback, OnCl
                     	 BitmapFactory.Options opts = new BitmapFactory.Options();
                     	 Bitmap bitmap= BitmapFactory.decodeByteArray(data, 0, data.length,opts);
 
-                         /*
+
                     	 bitmap = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
                     	 int width = bitmap.getWidth();
                          int height = bitmap.getHeight();
@@ -99,8 +101,8 @@ public class CameraView extends Activity implements SurfaceHolder.Callback, OnCl
                          matrix.postRotate(90);
                          Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,
                                  width, height, matrix, true);
-                        */
 
+/*
                          ///////////////
                          Matrix mtx = new Matrix();
                          mtx.postRotate(90);
@@ -110,10 +112,11 @@ public class CameraView extends Activity implements SurfaceHolder.Callback, OnCl
                          if (rotatedBMP != bitmap)
                              bitmap.recycle();
                          ////////////////
-                    	 CaptureCameraImage.image.setImageBitmap(rotatedBMP);
+                    */
+                    	 //CaptureCameraImage.image.setImageBitmap(resizedBitmap);
 
                          try {
-                             sendPhoto(rotatedBMP);
+                             sendPhoto(resizedBitmap);
                          } catch (Exception e) {
                              // TODO Auto-generated catch block
                              e.printStackTrace();
@@ -147,7 +150,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback, OnCl
 
             DefaultHttpClient httpclient = new DefaultHttpClient();
             try {
-                HttpPost httppost = new HttpPost("http://192.168.25.34/savetofile.php"); // server
+                HttpPost httppost = new HttpPost(Util.serverAddress + "/savePhoto.php"); // server
                 //HttpPost httppost = new HttpPost("http://192.168.25.34/Webcam.php/savePhoto");
                 MultipartEntity reqEntity = new MultipartEntity();
                 reqEntity.addPart("myFile", System.currentTimeMillis() + ".jpg", in);
@@ -156,7 +159,11 @@ public class CameraView extends Activity implements SurfaceHolder.Callback, OnCl
                 Log.i(TAG, "request " + httppost.getRequestLine());
                 HttpResponse response = null;
                 try {
+                    //ResponseHandler<String> responseHandler = new BasicResponseHandler();
+                    //response = httpclient.execute(httppost);
+                    //final String test = httpclient.execute(httppost, responseHandler);
                     response = httpclient.execute(httppost);
+                    //Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT).show();
                 } catch (ClientProtocolException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -205,7 +212,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback, OnCl
         protected void onPostExecute(Void result) {
             // TODO Auto-generated method stub
             super.onPostExecute(result);
-            Toast.makeText(getApplicationContext(), "Uploaded successfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_LONG).show();
         }
     }
 
