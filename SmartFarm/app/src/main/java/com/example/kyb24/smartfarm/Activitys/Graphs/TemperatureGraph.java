@@ -50,7 +50,8 @@ public class TemperatureGraph extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(getApplicationContext(), "temperature", Toast.LENGTH_SHORT).show();
+        setLineGraph();
+        //Toast.makeText(getApplicationContext(), "temperature", Toast.LENGTH_SHORT).show();
     }
 
     void DrawGraph(){

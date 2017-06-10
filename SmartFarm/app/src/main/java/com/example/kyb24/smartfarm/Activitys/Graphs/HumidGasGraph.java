@@ -45,10 +45,6 @@ public class HumidGasGraph extends AppCompatActivity {
 
         layoutGraphView = (ViewGroup) findViewById(R.id.layoutHumidGasGraphView);
 
-        DrawGraph();
-    }
-
-    private void DrawGraph(){
         try {
             httpclient = new DefaultHttpClient();
             httppost = new HttpPost(Util.serverAddress + "/returnCollectedSensorValue.php");
@@ -77,11 +73,14 @@ public class HumidGasGraph extends AppCompatActivity {
 
         setLineGraph();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(getApplicationContext(), "humid", Toast.LENGTH_SHORT).show();
+        setLineGraph();
+        //Toast.makeText(getApplicationContext(), "light", Toast.LENGTH_SHORT).show();
     }
+
 
     private void setLineGraph() {
         //all setting

@@ -50,7 +50,8 @@ public class IlluminationGraph extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(getApplicationContext(), "light", Toast.LENGTH_SHORT).show();
+        setLineGraph();
+        //Toast.makeText(getApplicationContext(), "light", Toast.LENGTH_SHORT).show();
     }
 
     private void DrawGraph(){
