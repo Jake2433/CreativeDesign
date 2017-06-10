@@ -1,0 +1,14 @@
+CREATE TABLE user_list (id VARCHAR(20), pwd VARCHAR(15), name VARCHAR(15), birth DATE, sex CHAR(1), phone_number VARCHAR(15), PRIMARY KEY (id));
+
+
+CREATE TABLE sensorValue (idx int(10) AUTO_INCREMENT,Datetime DATETIME,light int(3), temperature int(3), air int(3), humid int(3), PRIMARY KEY (idx));
+
+INSERT INTO sensorValue (Datetime, light, temperature, air, humid) VALUES(NOW(), 5, 6, 7, 8);
+
+CREATE TABLE sensorGoal (idx int(10) AUTO_INCREMENT,light int(3), temperature int(3), air int(3), humid int(3), PRIMARY KEY (idx));
+
+ALTER TABLE sensorvalue CHANGE Datetime time DATETIME;
+
+CREATE TABLE webcamResName (idx int(10) AUTO_INCREMENT, name VARCHAR(20), PRIMARY KEY(idx));
+
+INSERT INTO webcamResName(name) VALUE ('test');
