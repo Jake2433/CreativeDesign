@@ -42,19 +42,19 @@ public class IlluminationGraph extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_illumination_graph);
-
         layoutGraphView = (ViewGroup) findViewById(R.id.layoutIlluminationGraphView);
-
         DrawGraph();
+        //Toast.makeText(getApplicationContext(), "light", Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onResume() {
         super.onResume();
-        setLineGraph();
         //Toast.makeText(getApplicationContext(), "light", Toast.LENGTH_SHORT).show();
+        //DrawGraph();
+        //setLineGraph();
     }
 
-    private void DrawGraph(){
+     void DrawGraph(){
         try {
             httpclient = new DefaultHttpClient();
             httppost = new HttpPost(Util.serverAddress + "/returnCollectedSensorValue.php");

@@ -32,9 +32,6 @@
         <activity android:name=".Activitys.Graphs.TemperatureGraph" />
         <activity android:name=".Activitys.Graphs.HumidGasGraph" />
         <activity android:name=".Activitys.Graphs.IlluminationGraph" />
-        <activity android:name=".Activitys.tests.test1" />
-        <activity android:name=".Activitys.tests.test2" />
-        <activity android:name=".Activitys.tests.test3"></activity>
     </application>
 
 </manifest>

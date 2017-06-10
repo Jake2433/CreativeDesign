@@ -45,12 +45,6 @@ public class TemperatureGraph extends AppCompatActivity {
 
         layoutTemperatureGraphView = (ViewGroup) findViewById(R.id.layoutTemperatureGraphView);
         DrawGraph();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setLineGraph();
         //Toast.makeText(getApplicationContext(), "temperature", Toast.LENGTH_SHORT).show();
     }
 
