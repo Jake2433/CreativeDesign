@@ -5,5 +5,5 @@ package com.example.kyb24.smartfarm.util;
  */
 
 public class Util {
-    public final static String serverAddress = "http://192.168.0.131";
+    public final static String serverAddress = "http://192.168.0.185/android";
 }
