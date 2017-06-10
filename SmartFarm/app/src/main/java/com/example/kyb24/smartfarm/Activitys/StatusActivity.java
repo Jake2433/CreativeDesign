@@ -41,7 +41,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     TextView tvCurLight, tvCurTemper, tvCurAirCondi, tvCurHumid;
     Button btnDesirLight, btnDesirTemper, btnDesirAirCondi, btnDesirHumid;
     ImageButton btnFeed, btnWater, btnCCTV, btnGraph;
-    Button btnLogout;
+    ImageButton btnLogout;
 
     HttpPost httppost;
     HttpResponse response;
@@ -138,7 +138,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         btnWater = (ImageButton) findViewById(R.id.btnWater);
         btnCCTV = (ImageButton) findViewById(R.id.btnCCTV);
         btnGraph = (ImageButton) findViewById(R.id.btnGraph);
-        btnLogout = (Button)findViewById(R.id.btnLogout);
+        btnLogout = (ImageButton)findViewById(R.id.btnLogout);
 
         btnDesirLight.setOnClickListener(this);
         btnDesirTemper.setOnClickListener(this);
@@ -177,7 +177,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         switch (btn){
             case 0:
                 btnDesirLight.setText(parent.getItemAtPosition(pos).toString());
-                SetDesirSensorVal("light", parent.getItemAtPosition(pos).toString());
+                SetDesirSensorVal("cds", parent.getItemAtPosition(pos).toString());
                 break;
             case 1:
                 btnDesirTemper.setText(parent.getItemAtPosition(pos).toString());
@@ -185,11 +185,11 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case 2:
                 btnDesirAirCondi.setText(parent.getItemAtPosition(pos).toString());
-                SetDesirSensorVal("air", parent.getItemAtPosition(pos).toString());
+                SetDesirSensorVal("gas", parent.getItemAtPosition(pos).toString());
                 break;
             case 3:
                 btnDesirHumid.setText(parent.getItemAtPosition(pos).toString());
-                SetDesirSensorVal("humid", parent.getItemAtPosition(pos).toString());
+                SetDesirSensorVal("humidity", parent.getItemAtPosition(pos).toString());
                 break;
         }
     }
@@ -204,10 +204,10 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
             final String response = httpclient.execute(httppost, responseHandler);
             JSONObject json = new JSONObject(response);
 
-            tvCurLight.setText(json.getString("light"));
+            tvCurLight.setText(json.getString("cds"));
             tvCurTemper.setText(json.getString("temperature"));
-            tvCurAirCondi.setText(json.getString("air"));
-            tvCurHumid.setText(json.getString("humid"));
+            tvCurAirCondi.setText(json.getString("gas"));
+            tvCurHumid.setText(json.getString("humidity"));
             //Toast.makeText(getApplicationContext(), json.getString("temperature"), Toast.LENGTH_SHORT).show();
         }
         catch(Exception e) {}
