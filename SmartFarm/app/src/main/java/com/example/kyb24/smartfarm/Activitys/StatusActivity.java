@@ -242,7 +242,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     {
         feeding_state_value = "100";
 
-        final CharSequence[] WaterNumber = {"ON", "OFF"};
+        final CharSequence[] WaterNumber = {"OPEN", "CLOSE"};
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
         alt_bld.setIcon(R.drawable.feed_icon);
         alt_bld.setTitle("먹이통 수동조절");
@@ -293,7 +293,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     {
         water_state_value = "100";
 
-        final CharSequence[] WaterNumber = {"ON", "OFF"};
+        final CharSequence[] WaterNumber = {"OPEN", "CLOSE"};
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
         alt_bld.setIcon(R.drawable.water_icon);
         alt_bld.setTitle("식수통 수동조절");
