@@ -60,6 +60,10 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     int btn = -1;
     private TextView _valueField ;
 
+    String feeding_state_value;
+    String water_state_value;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,25 +240,93 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
 
     public void ClickFeed()
     {
+        feeding_state_value = "100";
 
-    }
-
-    public void ClickWater()
-    {
-        final CharSequence[] WaterNumber = {"1번 식수통", "2번 식수통", "3번 식수통"};
+        final CharSequence[] WaterNumber = {"ON", "OFF"};
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
-        alt_bld.setIcon(R.drawable.water_icon);
-        alt_bld.setTitle("식수통을 선택해 주세요");
+        alt_bld.setIcon(R.drawable.feed_icon);
+        alt_bld.setTitle("먹이통 수동조절");
 
         alt_bld.setSingleChoiceItems(WaterNumber, 0,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         // 각 리스트를 선택했을때
+                        if(whichButton == 0) {
+                            feeding_state_value = "100";
+                        }
+                        else {
+                            feeding_state_value = "1";
+                        }
                     }
                 }).setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         // OK 버튼 클릭시 , 여기서 선택한 값을 메인 Activity 로 넘기면 된다.
+
+                        try {
+                            httpclient = new DefaultHttpClient();
+                            httppost = new HttpPost(Util.serverAddress + "/manual.php");
+                            nameValuePairs = new ArrayList<NameValuePair>(3);
+                            nameValuePairs.add(new BasicNameValuePair("Feed", feeding_state_value));
+                            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                            response = httpclient.execute(httppost);
+                            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+                            final String response = httpclient.execute(httppost, responseHandler);
+                            Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                        }
+                        catch(Exception e) {}
+
+
+                    }
+                }).setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Cancel 버튼 클릭시
+                        Toast.makeText(getApplicationContext(), "취소 하셨습니다.", Toast.LENGTH_LONG).show();
+                    }
+                });
+        alt_bld.show();
+
+    }
+
+    public void ClickWater()
+    {
+        water_state_value = "100";
+
+        final CharSequence[] WaterNumber = {"ON", "OFF"};
+        AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
+        alt_bld.setIcon(R.drawable.water_icon);
+        alt_bld.setTitle("식수통 수동조절");
+
+        alt_bld.setSingleChoiceItems(WaterNumber, 0,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // 각 리스트를 선택했을때
+                        if(whichButton == 0) {
+                            water_state_value = "100";
+                        }
+                        else {
+                            water_state_value = "1";
+                        }
+                    }
+                }).setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // OK 버튼 클릭시 , 여기서 선택한 값을 메인 Activity 로 넘기면 된다.
+
+                        try {
+                            httpclient = new DefaultHttpClient();
+                            httppost = new HttpPost(Util.serverAddress + "/manual.php");
+                            nameValuePairs = new ArrayList<NameValuePair>(3);
+                            nameValuePairs.add(new BasicNameValuePair("Water", water_state_value));
+                            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                            response = httpclient.execute(httppost);
+                            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+                            final String response = httpclient.execute(httppost, responseHandler);
+                            Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                        }
+                        catch(Exception e) {}
+
                     }
                 }).setNegativeButton("Cancel",
                 new DialogInterface.OnClickListener() {
