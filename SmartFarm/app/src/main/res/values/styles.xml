@@ -25,6 +25,7 @@
     </style>
 
     <style name="DesirButton" parent="StatusValue">
+        <item name="android:width">100dp</item>
         <item name="android:background">@android:color/background_light</item>
     </style>
 
