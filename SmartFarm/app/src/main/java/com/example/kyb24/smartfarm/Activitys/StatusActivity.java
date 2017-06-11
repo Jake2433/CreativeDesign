@@ -51,7 +51,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     HttpClient httpclient;
     List<NameValuePair> nameValuePairs;
 
-    int  cctvSelection = 0;
+    int  graphSelection = 0;
 
     String selectedVal;
     Spinner spinner;
@@ -252,7 +252,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void ClickGraph(){
-        cctvSelection = 0;
+        graphSelection = 0;
 
         final CharSequence[] FeedingNumber = {"온도", "습도/가스", "조도"};
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
@@ -265,7 +265,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                         // 각 리스트를 선택했을때
                         //Toast.makeText(getApplicationContext(), FeedingNumber[whichButton], Toast.LENGTH_SHORT).show();
 
-                        cctvSelection = whichButton;
+                        graphSelection = whichButton;
                     }
                 }).setPositiveButton("Ok",
                 new DialogInterface.OnClickListener(){
@@ -273,15 +273,15 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                         //Toast.makeText(getApplicationContext(), String.valueOf(FeedSelected), Toast.LENGTH_LONG).show();
                         // OK 버튼 클릭시 , 여기서 선택한 값을 메인 Activity 로 넘기면 된다.
                         Intent intent;
-                        if(cctvSelection == 0){
+                        if(graphSelection == 0){
                             intent = new Intent(StatusActivity.this,TemperatureGraph.class);
                             startActivity(intent);
                         }
-                        else if(cctvSelection == 1){
+                        else if(graphSelection == 1){
                             intent = new Intent(StatusActivity.this,HumidGasGraph.class);
                             startActivity(intent);
                         }
-                        else if(cctvSelection == 2){
+                        else if(graphSelection == 2){
                             intent = new Intent(StatusActivity.this,IlluminationGraph.class);
                             startActivity(intent);
                         }
@@ -291,7 +291,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                     public void onClick(DialogInterface dialog, int whichButton) {
                         // Cancel 버튼 클릭시
                         Toast.makeText(getApplicationContext(), "취소 하셨습니다.", Toast.LENGTH_LONG).show();
-                        cctvSelection = 0;
+                        graphSelection = 0;
                     }
                 });
         alt_bld.show();
