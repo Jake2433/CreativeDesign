@@ -1,14 +1,11 @@
 package com.example.kyb24.smartfarm.Activitys.Graphs;
 
-import android.app.FragmentManager;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
-import android.widget.Toast;
 
 import com.example.kyb24.smartfarm.R;
-import com.example.kyb24.smartfarm.util.TabPagerAdapter;
 
 /**
  * Created by kyb24 on 2017-03-28.
@@ -67,20 +64,20 @@ public class GraphTabActivity extends TabActivity{
 
         // Do the same for the other tabs
 
-        spec = tabHost.newTabSpec("Humid/Gas"); // Create a new TabSpec using tab host
-        spec.setIndicator("Humid/Gas"); // set the “CONTACT” as an indicator
+        spec = tabHost.newTabSpec("Humid"); // Create a new TabSpec using tab host
+        spec.setIndicator("Humid"); // set the “CONTACT” as an indicator
         // Create an Intent to launch an Activity for the tab (to be reused)
-        intent = new Intent(this, HumidGasGraph.class);
+        intent = new Intent(this, HumidGraph.class);
       //  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // spec.setContent();
         spec.setContent(intent);
         tabHost.addTab(spec);
 
-        spec = tabHost.newTabSpec("Illumination"); // Create a new TabSpec using tab host
-        spec.setIndicator("Illumination"); // set the “ABOUT” as an indicator
+        spec = tabHost.newTabSpec("Illumination/Gas"); // Create a new TabSpec using tab host
+        spec.setIndicator("Illumination/Gas"); // set the “ABOUT” as an indicator
         // Create an Intent to launch an Activity for the tab (to be reused)
         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent = new Intent(this, IlluminationGraph.class);
+        intent = new Intent(this, IlluminationGasGraph.class);
         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // spec.setContent();
         spec.setContent(intent);
@@ -103,12 +100,12 @@ public class GraphTabActivity extends TabActivity{
         tabHost.addTab(spec);
 
         spec = tabHost.newTabSpec("Humid/Gas");
-        spec.setContent(new Intent(this, HumidGasGraph.class));
+        spec.setContent(new Intent(this, HumidGraph.class));
         spec.setIndicator("Humid/Gas");
         tabHost.addTab(spec);
 
         spec = tabHost.newTabSpec("Illumination");
-        spec.setContent(new Intent(this, IlluminationGraph.class));
+        spec.setContent(new Intent(this, IlluminationGasGraph.class));
         spec.setIndicator("Illumination");
         tabHost.addTab(spec);
 

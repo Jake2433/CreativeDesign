@@ -17,9 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.kyb24.smartfarm.Activitys.Graphs.GraphTabActivity;
-import com.example.kyb24.smartfarm.Activitys.Graphs.HumidGasGraph;
-import com.example.kyb24.smartfarm.Activitys.Graphs.IlluminationGraph;
+import com.example.kyb24.smartfarm.Activitys.Graphs.HumidGraph;
+import com.example.kyb24.smartfarm.Activitys.Graphs.IlluminationGasGraph;
 import com.example.kyb24.smartfarm.Activitys.Graphs.TemperatureGraph;
 import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.Util;
@@ -54,7 +53,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     int  graphSelection = 0;
 
     String selectedVal;
-    Spinner spinner;
+    Spinner temperatureSpinner,humidSpinner,airSpinner,lightSpinner;
 
     Timer t;
 
@@ -77,19 +76,19 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         switch(v.getId()){
             case R.id.btnDesirLight:
                 btn = 0;
-                spinner.performClick();
+                lightSpinner.performClick();
                 break;
             case R.id.btnDesirTemper:
                 btn = 1;
-                spinner.performClick();
+                temperatureSpinner.performClick();
                 break;
             case R.id.btnDesirAirCondi:
                 btn = 2;
-                spinner.performClick();
+                airSpinner.performClick();
                 break;
             case R.id.btnDesirHumid:
                 btn = 3;
-                spinner.performClick();
+                humidSpinner.performClick();
                 break;
             case R.id.btnFeed:
                 ClickFeed();
@@ -156,9 +155,21 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         btnGraph.setOnClickListener(this);
         btnLogout.setOnClickListener(this);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        temperatureSpinner = (Spinner) findViewById(R.id.temperatureSpinner);
+        humidSpinner = (Spinner) findViewById(R.id.humidSpinner);
+        airSpinner = (Spinner) findViewById(R.id.airSpinner);
+        lightSpinner = (Spinner) findViewById(R.id.lightSpinner);
+
+        SetSpinner(temperatureSpinner,20,35,1);
+        SetSpinner(humidSpinner,45,85,5);
+        SetSpinner(airSpinner,100,900,100);
+        SetSpinner(lightSpinner,300,900,100);
+
+    }
+
+    void SetSpinner(Spinner spinner, int first, int last,int gap){
         List<String> list = new ArrayList<String>();
-        for(int i=1; i<=80; i++){
+        for(int i=first; i<=last; i+=gap){
             list.add(String.valueOf(i));
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);
@@ -181,18 +192,22 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         //Toast.makeText(getApplicationContext(), "The planet is " + parent.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG).show();
         switch (btn){
             case 0:
+                //Toast.makeText(getApplicationContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
                 btnDesirLight.setText(parent.getItemAtPosition(pos).toString());
                 SetDesirSensorVal("cds", parent.getItemAtPosition(pos).toString());
                 break;
             case 1:
+                //Toast.makeText(getApplicationContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
                 btnDesirTemper.setText(parent.getItemAtPosition(pos).toString());
                 SetDesirSensorVal("temperature", parent.getItemAtPosition(pos).toString());
                 break;
             case 2:
+                //Toast.makeText(getApplicationContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
                 btnDesirAirCondi.setText(parent.getItemAtPosition(pos).toString());
                 SetDesirSensorVal("gas", parent.getItemAtPosition(pos).toString());
                 break;
             case 3:
+                //Toast.makeText(getApplicationContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
                 btnDesirHumid.setText(parent.getItemAtPosition(pos).toString());
                 SetDesirSensorVal("humidity", parent.getItemAtPosition(pos).toString());
                 break;
@@ -254,7 +269,7 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
     public void ClickGraph(){
         graphSelection = 0;
 
-        final CharSequence[] FeedingNumber = {"온도", "습도/가스", "조도"};
+        final CharSequence[] FeedingNumber = {"온도", "습도", "조도/가스"};
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
         alt_bld.setIcon(R.drawable.feed_icon);
         alt_bld.setTitle("조회할 그래프를 선택해 주세요");
@@ -278,11 +293,11 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
                             startActivity(intent);
                         }
                         else if(graphSelection == 1){
-                            intent = new Intent(StatusActivity.this,HumidGasGraph.class);
+                            intent = new Intent(StatusActivity.this,HumidGraph.class);
                             startActivity(intent);
                         }
                         else if(graphSelection == 2){
-                            intent = new Intent(StatusActivity.this,IlluminationGraph.class);
+                            intent = new Intent(StatusActivity.this,IlluminationGasGraph.class);
                             startActivity(intent);
                         }
                     }

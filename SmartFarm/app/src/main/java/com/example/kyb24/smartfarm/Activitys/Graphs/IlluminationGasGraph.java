@@ -3,7 +3,6 @@ package com.example.kyb24.smartfarm.Activitys.Graphs;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.kyb24.smartfarm.R;
 import com.example.kyb24.smartfarm.util.Util;
@@ -26,7 +25,7 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HumidGasGraph extends AppCompatActivity {
+public class IlluminationGasGraph extends AppCompatActivity {
 
     private ViewGroup layoutGraphView;
 
@@ -36,27 +35,25 @@ public class HumidGasGraph extends AppCompatActivity {
     List<NameValuePair> nameValuePairs;
 
     String[] timeStamp;
-    float[]  air, humid;
+    float[] air, light;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_humid_gas_graph);
-        layoutGraphView = (ViewGroup) findViewById(R.id.layoutHumidGasGraphView);
+        setContentView(R.layout.activity_illumination_gas_graph);
+        layoutGraphView = (ViewGroup) findViewById(R.id.layoutIlluminationGraphView);
         DrawGraph();
-        //Toast.makeText(getApplicationContext(), "humid", Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(getApplicationContext(), "light", Toast.LENGTH_SHORT).show();
     }
-
     @Override
     protected void onResume() {
         super.onResume();
-        //Toast.makeText(getApplicationContext(), "humid", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "light", Toast.LENGTH_SHORT).show();
         //DrawGraph();
         //setLineGraph();
     }
 
-    void DrawGraph(){
+     void DrawGraph(){
         try {
             httpclient = new DefaultHttpClient();
             httppost = new HttpPost(Util.serverAddress + "/returnCollectedSensorValue.php");
@@ -70,13 +67,13 @@ public class HumidGasGraph extends AppCompatActivity {
 
             timeStamp       = new String[jsonArray.length()];
             air             = new float[jsonArray.length()];
-            humid           = new float[jsonArray.length()];
+            light           = new float[jsonArray.length()];
             //Toast.makeText(getApplicationContext(), "test2", Toast.LENGTH_SHORT).show();
             //GRAPH SETTING
             for(int i=0; i<jsonArray.length(); i++){
                 timeStamp[i] = jsonArray.getJSONObject(i).getString("time");
+                light[i] = jsonArray.getJSONObject(i).getInt("light");
                 air[i] = jsonArray.getJSONObject(i).getInt("air");
-                humid[i] = jsonArray.getJSONObject(i).getInt("humid");
             }
             //tvCurLight.setText(json.getString("light"));
             //Toast.makeText(getApplicationContext(), json.getString("temperature"), Toast.LENGTH_SHORT).show();
@@ -85,8 +82,6 @@ public class HumidGasGraph extends AppCompatActivity {
 
         setLineGraph();
     }
-
-
     private void setLineGraph() {
         //all setting
         LineGraphVO vo = makeLineGraphAllSetting();
@@ -136,19 +131,19 @@ public class HumidGasGraph extends AppCompatActivity {
         //max value
         //int maxValue 		= LineGraphVO.DEFAULT_MAX_VALUE;
         //int maxValue 		= 100;
-        int maxValue 		= 80;
+        int maxValue 		= 900;
 
         //increment
         //int increment 		= LineGraphVO.DEFAULT_INCREMENT;
         //int increment 		    = 10;
-        int increment 		    = 10;
+        int increment 		    = 200;
 
 
 
         List<LineGraph> arrGraph = new ArrayList<LineGraph>();
 
-        arrGraph.add(new LineGraph("Humid", 0xaa66ff33, humid /*, R.drawable.water_icon*/));
-        arrGraph.add(new LineGraph("Air", 0xaaff0066, air/*, R.drawable.water_icon*/));
+        arrGraph.add(new LineGraph("조도", 0xaaff7f50, light /*, R.drawable.water_icon*/));
+        arrGraph.add(new LineGraph("가스", 0xaa228b22, air/*, R.drawable.water_icon*/));
 
         LineGraphVO vo = new LineGraphVO(
                 paddingBottom, paddingTop, paddingLeft, paddingRight,

@@ -125,18 +125,18 @@ public class TemperatureGraph extends AppCompatActivity {
         //max value
         //int maxValue 		= LineGraphVO.DEFAULT_MAX_VALUE;
         //int maxValue 		= 100;
-        int maxValue 		= 30;
+        int maxValue 		= 38;
 
         //increment
         //int increment 		= LineGraphVO.DEFAULT_INCREMENT;
         //int increment 		    = 10;
-        int increment 		    = 5;
+        int increment 		    = 3;
 
 
 
         List<LineGraph> arrGraph = new ArrayList<LineGraph>();
 
-        arrGraph.add(new LineGraph("Temperature", 0xaa00ffff, temperature/*, R.drawable.water_icon*/));
+        arrGraph.add(new LineGraph("온도", 0xaadc143c, temperature/*, R.drawable.water_icon*/));
 
         LineGraphVO vo = new LineGraphVO(
                 paddingBottom, paddingTop, paddingLeft, paddingRight,
