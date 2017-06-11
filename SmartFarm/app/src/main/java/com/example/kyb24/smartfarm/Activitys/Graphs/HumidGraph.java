@@ -74,7 +74,7 @@ public class HumidGraph extends AppCompatActivity {
             //GRAPH SETTING
             for(int i=0; i<jsonArray.length(); i++){
                 timeStamp[i] = jsonArray.getJSONObject(i).getString("time");
-                humid[i] = jsonArray.getJSONObject(i).getInt("humid");
+                humid[i] = jsonArray.getJSONObject(i).getInt("humidity");
             }
             //tvCurLight.setText(json.getString("light"));
             //Toast.makeText(getApplicationContext(), json.getString("temperature"), Toast.LENGTH_SHORT).show();

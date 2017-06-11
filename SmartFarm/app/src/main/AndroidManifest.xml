@@ -30,8 +30,8 @@
         <activity android:name=".Activitys.StatusActivity" />
         <activity android:name=".Activitys.CCTVActivity" />
         <activity android:name=".Activitys.Graphs.TemperatureGraph" />
-        <activity android:name=".Activitys.Graphs.HumidGasGraph" />
-        <activity android:name=".Activitys.Graphs.IlluminationGraph" />
+        <activity android:name=".Activitys.Graphs.HumidGraph" />
+        <activity android:name=".Activitys.Graphs.IlluminationGasGraph" />
     </application>
 
 </manifest>

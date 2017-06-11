@@ -72,8 +72,8 @@ public class IlluminationGasGraph extends AppCompatActivity {
             //GRAPH SETTING
             for(int i=0; i<jsonArray.length(); i++){
                 timeStamp[i] = jsonArray.getJSONObject(i).getString("time");
-                light[i] = jsonArray.getJSONObject(i).getInt("light");
-                air[i] = jsonArray.getJSONObject(i).getInt("air");
+                light[i] = jsonArray.getJSONObject(i).getInt("cdn");
+                air[i] = jsonArray.getJSONObject(i).getInt("gas");
             }
             //tvCurLight.setText(json.getString("light"));
             //Toast.makeText(getApplicationContext(), json.getString("temperature"), Toast.LENGTH_SHORT).show();
